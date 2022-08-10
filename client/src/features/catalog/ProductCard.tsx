@@ -1,4 +1,5 @@
 import { Avatar, Button, Card, CardActionArea, CardActions, CardContent, CardHeader, CardMedia, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import { Product } from "../../app/models/product";
 
 interface Props {
@@ -7,8 +8,6 @@ interface Props {
 
 export default function ProductCard({product}: Props){
     return(
-        
-
         <Card>
             <CardHeader 
                 avatar={
@@ -21,7 +20,6 @@ export default function ProductCard({product}: Props){
                     sx: {fontWeight: 'bold', color: 'primary.main'}
                 }}
             />
-
             <CardActionArea>
             <CardMedia
                 sx={{height: 140, backgroundSize: 'contain', bgcolor:'primary.main' }}
@@ -41,7 +39,7 @@ export default function ProductCard({product}: Props){
             <Button size="small" color="primary">
                 Add to Cart
             </Button>
-            <Button size="small" color="primary">
+            <Button size="small" component={Link} to={`/catalog/${product.id}`}>
                 View
             </Button>
             </CardActions>
